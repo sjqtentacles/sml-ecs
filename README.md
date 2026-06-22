@@ -1,5 +1,7 @@
 # sml-ecs
 
+[![CI](https://github.com/sjqtentacles/sml-ecs/actions/workflows/ci.yml/badge.svg)](https://github.com/sjqtentacles/sml-ecs/actions/workflows/ci.yml)
+
 Entity-Component-System (ECS) architecture with sparse component stores in pure Standard ML
 
 ## Installation

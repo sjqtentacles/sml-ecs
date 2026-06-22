@@ -44,11 +44,37 @@ val false = EntityManager.isAlive m3 e0
 val live = EntityManager.alive m2   (* [e0, e1] *)
 ```
 
+## Example
+
+`make example` builds and runs [`examples/demo.sml`](examples/demo.sml), which
+creates entities, attaches `int` and `string` components via two functor
+instances, queries and mutates them, and shows that destroyed entity IDs are
+recycled:
+
+```
+$ make example
+Entity manager:
+  created entities = [0, 1, 2]
+  alive            = [2, 1, 0]
+
+Components:
+  health  e0=100 e1=50 e2=30
+  name    e0=hero e1=goblin e2=-
+  e2 has a name? false
+
+Mutation:
+  remove health e1 -> e1 has health? false
+  destroy e0 -> isAlive e0 = false
+  alive = [2, 1]
+  next create reuses id = 0
+```
+
 ## Testing
 
 ```
 make test       # MLton
 make test-poly  # Poly/ML
+make example    # build + run the demo
 ```
 
 ## License
